@@ -1,3 +1,3 @@
 class Juice < ApplicationRecord
-    serialize :ingredients, Hash
+    serialize :ingredients, Hash 
 end
