@@ -10,6 +10,7 @@ User.create( username: "pencil", password: "1234")
 List.create( name: "My awesome lsit", user_id: 1, juice_id: 1, description:"my mexican health juices")
 
 Juice.create([
-    {name:"Green Juice", ingredients:["2 apples", "2 cups of spinach", "2 celery sticks"]},
-    {name: "Beet Juice", ingredients:["4 beets large", "5 carrtos sticks", "120ml of squeezed orange"]}
+    {name: "Green Juice", ingredients:{apple: "need 3 apples for this", spinach: "need 3 cups"}},
+    {name: "Beet Juice", ingredients:{beet: "4 large", carrot: "want 5 carrot sticks"}}
 ])
+
