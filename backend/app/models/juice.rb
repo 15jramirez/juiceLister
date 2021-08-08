@@ -1,6 +1,13 @@
 class Juice < ApplicationRecord
-
-  has_one_attached :image
+  include Rails.application.routes.url_helpers
   belongs_to :category
-  serializer :ingredients, Hash
+  has_one_attached :image
+  serialize :ingredients, Hash
+
+  def image_url
+    if image.attached?
+      url_for(image)
+    end
+  end
+  
 end
