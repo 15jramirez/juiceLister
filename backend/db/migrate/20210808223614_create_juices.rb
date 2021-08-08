@@ -2,8 +2,7 @@ class CreateJuices < ActiveRecord::Migration[6.1]
   def change
     create_table :juices do |t|
       t.string :name
-      t.text :ingreidents
-      t.belongs_to :category, null: false, foreign_key: true
+      t.text :ingredients
 
       t.timestamps
     end
