@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create( username: "pencil", password: "1234")
-List.create( name: "My awesome lsit", user_id: 1, juice_id: 1, description:"my mexican health juices")
-
-Juice.create([
-    {name: "Green Juice", ingredients:{apple: "need 3 apples for this", spinach: "need 3 cups"}, image: "images/greenjuice.jpg"},
-    {name: "Beet Juice", ingredients:{beet: "4 large", carrot: "want 5 carrot sticks"}, image: "images/download.jpg"}
-])
-
+# Juice.create([
+#     {name: "Green Juice", ingredients:{apple: "need 3 apples for this", spinach: "need 3 cups"},},
+#     {name: "Beet Juice", ingredients:{beet: "4 large", carrot: "want 5 carrot sticks"}}
+# ])
+Category.create( name: "healthy")
+ one = Juice.create!({name: "Green Juice", ingreidents:{apple: "need 3 apples for this", spinach: "need 3 cups"}, category_id: 1 })
+ one.save
+ one.image.attach(io: File.open("#{Rails.root}/app/assets/images/greenjuice.png"), filename:"greenjuice.png", content_type:"image/png" )
