@@ -5,8 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
- categories = Category.create( [{name: "Immune Boost"}, {name:"Lower Blood Pressure"}] )
+ Category.create([{name: "Immune Boost"}, {name:"Lower Blood Pressure"}])
  one = Juice.create!({name: "Green Juice", ingredients:{apple: "need 3 apples for this", spinach: "need 3 cups"}, category_id: 1 })
  one.save
  one.image.attach(io: File.open("#{Rails.root}/app/assets/images/greenjuice.png"), filename:"greenjuice.png", content_type:"image/png" ) #file path to seed image
