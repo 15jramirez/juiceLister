@@ -7,3 +7,15 @@ p{
     font-weight: bold;
     font-size: 20px;
 }
+
+
+.imageBack{
+    align-items: center;
+}
+
+.imageFront, .imageBack{
+    backface-visibility: hidden;
+    position: absolute;
+    display: flex;
+    border: 2px solid black;
+}
