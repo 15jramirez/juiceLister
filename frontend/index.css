@@ -6,10 +6,10 @@ h3{
     text-align: center;
 }
 
-/* Mouse Over Effect*/
+/* Mouse Over Effect with image*/
 p {
     font-size: 20px;
-    color:white;
+    color:white;   /*made white to account for asynch, and text loading first than img*/
 }
 .imageBack:hover img {
     display:none;
@@ -17,7 +17,7 @@ p {
 .imageBack p{
     color:rgb(22, 24, 32);
 }
-
+/* spacing to make mouseover effect smoother and cleaner*/
 div{
     margin-bottom: 60px;
 }
