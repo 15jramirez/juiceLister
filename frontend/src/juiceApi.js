@@ -16,11 +16,18 @@
         })
     }
 
-    updateRequest(){
+    updateRequest(juiceId){
         // const name = document.getElementById(``).value
 
         //to write fetch want: this.baseUrl + `${juiceId}
+
+        fetch(this.baseUrl + this.juice.findById(id))
+        .then(resp => resp.json())
+        .then (info=> console.log(info))
     }
     
+    deleteRequest(){
+
+    }
  }
 

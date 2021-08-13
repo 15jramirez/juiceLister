@@ -16,7 +16,7 @@ class Juice{
     }
 
    
-    static findByID(){
+    static findByID(id){
         return Juice.all.find(juice =>juice.id == id)
     }
     addImagesToDom(){
@@ -27,25 +27,31 @@ class Juice{
     fullRender(){
         console.log(this)
         this.element.innerHTML = `<img src = "${this.image_url}" width= "400" height="200"> 
-        <p><span>Juice: ${this.name}</span> is great ${this.category_id}. It has all of this ingridents</p>`
+        <p>Juice: ${this.name} is great ${this.category_id}. It has all of this ingridents</p>
+        <button class="update" data-id="${this.id}">Update</button>
+        <button class="delete" data-id"${this.id}">Delete </button>`
         return this.element // need to return otherwise returns undefined
     }
 
     addEventListeners(){
+        console.log(this.element)
         this.element.addEventListener(`mouseenter`, this.handleMouseEnterImage)
         this.element.addEventListener(`mouseleave`, this.handleMouseLeaveImage)
+        this.element.addEventListener('click', this.handleOnClick)
     }
-    handleMouseEnterImage(event){
-        console.log(event)
+    handleMouseEnterImage(){
         this.classList.remove('imageFront')
         this.classList.add(`imageBack`)
 
     }
 
     handleMouseLeaveImage(event){
-        console.log(event)
         this.classList.add('imageFront')
         this.classList.remove(`imageBack`)
+    }
+
+    handleOnClick(){
+
     }
 
 }
