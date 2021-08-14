@@ -20,9 +20,9 @@ class Juice{
     static findByID(id){
         return Juice.all.find(juice =>juice.id == id)
     }
-    addImagesToDom(){
-        this.addEventListeners()
-        this.imageContainer.append(this.fullRender())  //this is for when make changes, it'll only rerender and not add divs
+    addInfoToDom(){
+        this.imageContainer.append(this.fullRender()) 
+        this.addEventListeners() //this is for when make changes, it'll only rerender and not add divs
     }
 
     fullRender(){
@@ -30,8 +30,30 @@ class Juice{
         this.element.innerHTML = `<img src = "${this.image_url}" width= "400" height="200"> 
         <p><span>${this.name}</span><br>${this.description}<br><span>Ingredients:</span><br>${this.ingredients}</p>
         <button class="update" data-id="${this.id}">Update</button>
-        <button class="delete" data-id"${this.id}">Delete </button>`
+        <button class="delete" data-id="${this.id}">Delete</button>`
         return this.element // need to return otherwise returns undefined
+    }
+
+    addUpdatesFields(juiceId){
+        let juiceChange = document.querySelector(`#juice-${juiceId}`)
+        let updateForm = `
+          <input type="text" name="name" value="${this.name}" id="update-juice-name-${juiceId}">
+          <input type="text" name="description" value="${this.description}" id="update-juice-description-${juiceId}"><br>
+          <textarea id="update-juice-ingredients-${juiceId}" name="ingredients" value="${this.ingredients}">${this.ingredients}</textarea>
+          `
+          let formContainer = document.createElement(`div`)
+          formContainer.id = `update-form-${juiceId}`
+          formContainer.innerHTML= updateForm
+  
+          juiceChange.append(formContainer)
+    }
+    updateItemOnDom({name, description, ingredients,category_id}){
+        this.name = name 
+        this.description = description
+        this.ingredients = ingredients
+        this.category_id = category_id
+        this.fullRender()
+        this.addEventListeners()
     }
 
     addEventListeners(){
@@ -51,7 +73,18 @@ class Juice{
         this.classList.remove(`imageBack`)
     }
 
-    handleOnClick(){
+    handleOnClick= (e) => {
+        let juiceId = e.target.dataset.id
+        if (e.target.className ==="update"){
+            e.target.className = "save"
+            e.target.innerHTML = "save"
+            this.addUpdatesFields(juiceId)
+        }
+        else if (e.target.className ==="save"){
+            e.target.className = "update"
+            e.target.innerHTML = "update"
+            juiceApi.patchUpdateRequest(juiceId)
+        }
 
     }
 

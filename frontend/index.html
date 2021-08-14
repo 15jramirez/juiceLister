@@ -8,10 +8,14 @@
   <body>
     <h1>Welcome to Juice!</h1>
     <h3>Let's explore some awesome juices out the of available juice recipes</h3>
-    <form>
+    <button id="new-form-btn">Add Your Juice</button>
+    <div id="new-form-container" hidden="true">
+    <form id="juice-form">
       <h2>Don't see your juice? Add Juice</h2>
+      <!-- <label for="juice-image">Select Image:</label>
+      <input type="file" id="juice-image_url" accept="image/*"> -->
       <label for=juice-name>Name:</label>
-      <input type= "text" name= "name" id="juice-name" placeholder="Cool Juice Name"><br><br>
+      <input type="text" name="name" id="juice-name" placeholder="Cool Juice Name"><br><br>
       <label for="juice-description">Description:</label>
       <input type="text" name="description" id="juice-description" placeholder="Some Awesome Description">
       <select name = "category" id="category">
@@ -23,7 +27,7 @@
       <textarea id="juice-ingredients" name="ingredients" row="4" cols="50" placeholder="List all those ingredients to make this awesome drink"></textarea><br><br>
       <input type="submit" value="Create">
     </form>
-
+    </div>
     <!-- <button class="juice-btn">Search</button> -->
     <div id ="container-box">
     </div>
