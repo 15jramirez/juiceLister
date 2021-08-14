@@ -17,8 +17,20 @@
     }
 
     updateRequest(juiceId){
-         const name = document.getElementById(`juice-name`).value
+         const updateName = document.getElementById(`juice-name`).value
+         const updateDescription = document.getElementById("juice-description")
+         let updateJuiceObj ={
+             name: updateName.value
+         }
 
+         let congfigObj ={
+             method: "PATCH",
+             headers: {
+                 "Content-Type": "application/json",
+                 "Accept": "application/json",
+             },
+             body: JSON.stringify(updateJuiceObj)
+         }
         //to write fetch want: this.baseUrl + `${juiceId}
 
         fetch(this.baseUrl + this.juice.findById(id))
