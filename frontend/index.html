@@ -8,22 +8,25 @@
   <body>
     <h1>Welcome to Juice!</h1>
     <h3>Let's explore some awesome juices out the of available juice recipes</h3>
-
-    <button class="juice-btn">Search</button>
-    <div id ="container-box">
-    </div>
     <form>
       <h2>Don't see your juice? Add Juice</h2>
       <label for=juice-name>Name:</label>
-      <input type= "text" name= "name" id="juice-name"><br><br>
+      <input type= "text" name= "name" id="juice-name" placeholder="Cool Juice Name"><br><br>
       <label for="juice-description">Description:</label>
+      <input type="text" name="description" id="juice-description" placeholder="Some Awesome Description">
       <select name = "category" id="category">
         <option name="category_id" value="1">Immune Boost</option>
         <option name="category_id" value="2">Lower Blood Pressure</option>
         <option name="category_id" value="3"> Detox</option>
-      </select>
+      </select><br><br>
+      <label for="juice-ingredients">Ingredients:</label>
+      <textarea id="juice-ingredients" name="ingredients" row="4" cols="50" placeholder="List all those ingredients to make this awesome drink"></textarea><br><br>
+      <input type="submit" value="Create">
     </form>
 
+    <!-- <button class="juice-btn">Search</button> -->
+    <div id ="container-box">
+    </div>
     <script src= "src/juiceApi.js" type="text/javascript"></script>
     <script src="src/juice.js" type= "text/javascript"></script>
     <script src="index.js" type="text/javascript"></script>

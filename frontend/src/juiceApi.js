@@ -19,6 +19,7 @@
     updateRequest(juiceId){
          const updateName = document.getElementById(`juice-name`).value
          const updateDescription = document.getElementById("juice-description")
+         const updateIngredients = document.getElementById("juice-ingredients")
          let updateJuiceObj ={
              name: updateName.value
          }
