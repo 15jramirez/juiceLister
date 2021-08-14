@@ -1,9 +1,9 @@
 class JuicesController < ApplicationController
     
-    before_action :find_profile, only:[:show,:update,:destroy]
+    # before_action :find_profile, only:[:show,:update,:destroy]
 
     def index
-        render json: Juice.all, methods: [:image_url]#here will make attached image come with api #calling methods to add
+        render json: JuiceSerializer.new(Juice.all)
     end
 
     def create
@@ -36,7 +36,7 @@ class JuicesController < ApplicationController
             params.require(:juice).permit(:name, :ingredients, :image)  #want to pass image
         end
 
-        def find_juice
-            juice = Juice.find(params[:id])
-        end
+        # def find_juice
+        #     juice = Juice.find(params[:id])
+        # end
 end
