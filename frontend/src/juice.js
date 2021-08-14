@@ -28,7 +28,7 @@ class Juice{
     fullRender(){
         console.log(this)
         this.element.innerHTML = `<img src = "${this.image_url}" width= "400" height="200"> 
-        <p><span>${this.name}</span><br>${this.description}<br>Ingredients:<br>${this.ingredients}</p>
+        <p><span>${this.name}</span><br>${this.description}<br><span>Ingredients:</span><br>${this.ingredients}</p>
         <button class="update" data-id="${this.id}">Update</button>
         <button class="delete" data-id"${this.id}">Delete </button>`
         return this.element // need to return otherwise returns undefined
