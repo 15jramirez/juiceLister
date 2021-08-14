@@ -1,9 +1,10 @@
 class Juice{
     static all =[]
-    constructor({name, image_url, ingredients, id, category_id}){    //deconstructed the {} allows to put elements w/ attributes
+    constructor({name, image_url, ingredients, id, category_id, description}){    //deconstructed the {} allows to put elements w/ attributes
         this.name = name    // this will also display on the back with image card
         this.image_url = image_url  // front of card
         this.ingredients = ingredients  //back of card 
+        this.description = description
         this.id = id //id of juice instance
         this.category_id = category_id  // want to put this on back of card too
         this.element = document.createElement(`div`)  // creating image with own div. this is front of card/(image is front)
@@ -27,7 +28,7 @@ class Juice{
     fullRender(){
         console.log(this)
         this.element.innerHTML = `<img src = "${this.image_url}" width= "400" height="200"> 
-        <p>Juice: ${this.name} is great ${this.category_id}. It has all of this ingridents</p>
+        <p><span>${this.name}</span><br>${this.description}</p>
         <button class="update" data-id="${this.id}">Update</button>
         <button class="delete" data-id"${this.id}">Delete </button>`
         return this.element // need to return otherwise returns undefined

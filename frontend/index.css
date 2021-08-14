@@ -5,7 +5,10 @@ h1{
 h3{
     text-align: center;
 }
-
+span{
+    font-weight: bold;
+    font-size:40px;
+}
 /* Mouse Over Effect with image*/
 p {
     font-size: 20px;
