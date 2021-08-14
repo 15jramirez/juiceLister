@@ -8,7 +8,8 @@ h3{
 span{
     font-weight: bold;
     font-size:40px;
-}
+
+} 
 /* Mouse Over Effect with image*/
 p {
     font-size: 20px;
@@ -21,9 +22,14 @@ p {
     color:rgb(22, 24, 32);
 }
 /* spacing to make mouseover effect smoother and cleaner*/
+.imageFront, .imageBack{
+    width: 500px;
+    height: 404px;
+}
 div{
-    padding: 78px;
+    padding: 40px;
     margin-bottom: 90px;
+    
 }
 div:last-of-type{
     margin-bottom: 0;
