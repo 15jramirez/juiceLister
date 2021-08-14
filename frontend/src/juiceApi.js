@@ -17,7 +17,7 @@
     }
 
     updateRequest(juiceId){
-        // const name = document.getElementById(``).value
+         const name = document.getElementById(`juice-name`).value
 
         //to write fetch want: this.baseUrl + `${juiceId}
 

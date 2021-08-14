@@ -19,7 +19,8 @@ p {
 }
 /* spacing to make mouseover effect smoother and cleaner*/
 div{
-    margin-bottom: 60px;
+    padding: 78px;
+    margin-bottom: 90px;
 }
 div:last-of-type{
     margin-bottom: 0;
