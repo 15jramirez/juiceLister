@@ -60,7 +60,7 @@
         // }
       
         const formData = new FormData(document.getElementById('juice-form'))
-        formData.append(`juice`, imageFile, imageFile.name)
+        formData.append(`image_url`, imageFile, imageFile.name)
         let configObj ={
             method: 'POST',
             // headers removed content type due to FormData(has own key/pair values) not string like JSONusing own content type of multiple.
