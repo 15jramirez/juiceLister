@@ -51,20 +51,24 @@
         const description = document.getElementById(`juice-description`).value
         const ingredients = document.getElementById(`juice-ingredients`).value
         const category_id = document.getElementById(`category`).value
-        let newJuiceObj = {
-            name,
-            description,
-            ingredients,
-            category_id
-        }
-
+        const imageFile = document.getElementById(`image_url`).files[0]
+        // let newJuiceObj = {
+        //     name,
+        //     description,
+        //     ingredients,
+        //     category_id
+        // }
+      
+        const formData = new FormData(document.getElementById('juice-form'))
+        formData.append(`juice`, imageFile, imageFile.name)
         let configObj ={
             method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            body: JSON.stringify(newJuiceObj)
+            // headers removed content type due to FormData(has own key/pair values) not string like JSONusing own content type of multiple.
+            // headers: {
+            //     // "Content-Type": "application/json",  
+            //     Accept: "application/json"
+            // },
+            body: formData
         }
         fetch(this.baseUrl, configObj)
         .then(res => res.json())
