@@ -17,9 +17,9 @@ class Juice{
     }
 
    
-    static findByID(id){
-        return Juice.all.find(juice =>juice.id == id)
-    }
+    // static findByID(id){
+    //     return Juice.all.find(juice =>juice.id == id)
+    // }
     addInfoToDom(){
         this.imageContainer.append(this.fullRender()) 
         this.addEventListeners() //this is for when make changes, it'll only rerender and not add divs
@@ -37,8 +37,8 @@ class Juice{
     addUpdatesFields(juiceId){
         let juiceChange = document.querySelector(`#juice-${juiceId}`)
         let updateForm = `
-          <label>Name:</label><input type="text" name="name" value="${this.name}" id="update-juice-name-${juiceId}">
-          <input type="text" name="description" value="${this.description}" id="update-juice-description-${juiceId}"><br>
+          <label>Name:</label><input type="text" name="name" value="${this.name}" id="update-juice-name-${juiceId}"><br>
+          <label>Description</label><input type="text" name="description" value="${this.description}" id="update-juice-description-${juiceId}"><br>
           <textarea id="update-juice-ingredients-${juiceId}" name="ingredients" value="${this.ingredients}">${this.ingredients}</textarea>
           `
           let formContainer = document.createElement(`div`)
@@ -52,8 +52,8 @@ class Juice{
         this.description = description
         this.ingredients = ingredients
         this.category_id = category_id
-        // this.fullRender()
-        // this.addEventListeners()
+        this.fullRender()
+        this.addEventListeners()
         return this.element
     }
 
