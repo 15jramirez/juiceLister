@@ -39,7 +39,7 @@
         fetch(this.baseUrl + `/${juiceId}`, configObj)
         .then(resp => resp.json())
         .then (result => {
-            let juice = Juice.all.find(j => j.id == result.data.attributes.id)
+            let juice = Juice.all.find(j => j.id === result.data.attributes.id)
 
         })
         let form = document.getElementById(`update-form-${juiceId}`)
@@ -69,7 +69,7 @@
         fetch(this.baseUrl, configObj)
         .then(res => res.json())
         .then(newInfo => {
-            let juice = new Juice(newInfo)
+            let juice = new Juice(newInfo.data.attributes)
             juice.addInfoToDom()
         })
         juiceForm.reset()

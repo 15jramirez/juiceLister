@@ -37,7 +37,7 @@ class Juice{
     addUpdatesFields(juiceId){
         let juiceChange = document.querySelector(`#juice-${juiceId}`)
         let updateForm = `
-          <input type="text" name="name" value="${this.name}" id="update-juice-name-${juiceId}">
+          <label>Name:</label><input type="text" name="name" value="${this.name}" id="update-juice-name-${juiceId}">
           <input type="text" name="description" value="${this.description}" id="update-juice-description-${juiceId}"><br>
           <textarea id="update-juice-ingredients-${juiceId}" name="ingredients" value="${this.ingredients}">${this.ingredients}</textarea>
           `
@@ -52,8 +52,9 @@ class Juice{
         this.description = description
         this.ingredients = ingredients
         this.category_id = category_id
-        this.fullRender()
-        this.addEventListeners()
+        // this.fullRender()
+        // this.addEventListeners()
+        return this.element
     }
 
     addEventListeners(){
