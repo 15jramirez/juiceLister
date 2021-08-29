@@ -1,28 +1,28 @@
 class Juice{
     static all =[]
-    constructor({name, image_url, ingredients, id, category_id, description}){    //deconstructed the {} allows to put elements w/ attributes
-        this.name = name    // this will also display on the back with image card
-        this.image_url = image_url  // front of card
-        this.ingredients = ingredients  //back of card 
+    constructor({name, image_url, ingredients, id, category_id, description}){    
+        this.name = name    
+        this.image_url = image_url  
+        this.ingredients = ingredients  
         this.description = description
-        this.id = id //id of juice instance
-        this.category_id = category_id  // want to put this on back of card too
-        this.element = document.createElement(`div`)  // creating image with own div. this is front of card/(image is front)
+        this.id = id 
+        this.category_id = category_id   
+        this.element = document.createElement(`div`)  
         this.element.id = `juice-${this.id}`
-        // this.element.classList.add(`imageFront`)  // adding class of imageFront to have FRONT CARD
         Juice.all.push(this);
     }
     get imageContainer(){
-        return document.getElementById(`container-box`) //this to grab div to append 
+        return document.getElementById(`container-box`) 
     }
 
    
     // static findByID(id){
     //     return Juice.all.find(juice =>juice.id == id)
     // }
+
     addInfoToDom(){
         this.imageContainer.append(this.fullRender()) 
-        this.addEventListeners() //this is for when make changes, it'll only rerender and not add divs
+        this.addEventListeners()
     }
 
     updateInfoToDom({name, description, ingredients}){
@@ -37,7 +37,7 @@ class Juice{
         this.element.innerHTML = `<img src = "${this.image_url}" width= "400" height="200"> 
         <p><span>${this.name}</span>: ${this.category_id}<br>${this.description}<br><span>Ingredients:</span><br>${this.ingredients}</p>
         <button class="update" data-id="${this.id}">Update</button>`
-        return this.element // need to return otherwise returns undefined
+        return this.element 
     }
 
     addUpdatesFields(juiceId){
