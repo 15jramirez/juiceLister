@@ -1,6 +1,4 @@
- // communicate with backend. handle posts, patch, delete
- // interfacing with api of backend
- class JuiceApi{
+class JuiceApi{
      constructor(){
          this.baseUrl = `http://localhost:3000/juices`
      }
@@ -35,32 +33,19 @@
              },
              body: JSON.stringify(juiceObj)
          }
-        //to write fetch want: this.baseUrl + `${juiceId}
         fetch(this.baseUrl + `/${juiceId}`, configObj)
         .then(resp => resp.json())
         .then (result => {
             let juice = Juice.all.find(j => j.id === result.data.attributes.id)
-
+            juice.updateInfoToDom(result.data.attributes)
+            alert(` ${juice.name} was updated successfully! `)
         })
         let form = document.getElementById(`update-form-${juiceId}`)
         form.remove()
     }
     handleFormSubmit = (e) =>{
         e.preventDefault()
-        const name = document.getElementById(`juice-name`).value
-        const description = document.getElementById(`juice-description`).value
-        const ingredients = document.getElementById(`juice-ingredients`).value
-        const category_id = document.getElementById(`category`).value
-        const imageFile = document.getElementById(`image_url`).files[0]
-        // let newJuiceObj = {
-        //     name,
-        //     description,
-        //     ingredients,
-        //     category_id
-        // }
-      
         const formData = new FormData(document.getElementById('juice-form'))
-        formData.append(`image_url`, imageFile, imageFile.name)
         let configObj ={
             method: 'POST',
             // headers removed content type due to FormData(has own key/pair values) not string like JSONusing own content type of multiple.

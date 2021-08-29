@@ -25,19 +25,25 @@ class Juice{
         this.addEventListeners() //this is for when make changes, it'll only rerender and not add divs
     }
 
+    updateInfoToDom({name, description, ingredients}){
+        this.name = name
+        this.description = description
+        this.ingredients = ingredients
+        this.fullRender()
+    }
+
     fullRender(){
         console.log(this)
         this.element.innerHTML = `<img src = "${this.image_url}" width= "400" height="200"> 
-        <p><span>${this.name}</span><br>${this.description}<br><span>Ingredients:</span><br>${this.ingredients}</p>
-        <button class="update" data-id="${this.id}">Update</button>
-        <button class="delete" data-id="${this.id}">Delete</button>`
+        <p><span>${this.name}</span>: ${this.category_id}<br>${this.description}<br><span>Ingredients:</span><br>${this.ingredients}</p>
+        <button class="update" data-id="${this.id}">Update</button>`
         return this.element // need to return otherwise returns undefined
     }
 
     addUpdatesFields(juiceId){
         let juiceChange = document.querySelector(`#juice-${juiceId}`)
         let updateForm = `
-          <label>Name:</label><input type="text" name="name" value="${this.name}" id="update-juice-name-${juiceId}"><br>
+          <label>Name:</label><input type="text" name="name" value="${this.name}" id="update-juice-name-${juiceId}"><br><br>
           <label>Description</label><input type="text" name="description" value="${this.description}" id="update-juice-description-${juiceId}"><br>
           <textarea id="update-juice-ingredients-${juiceId}" name="ingredients" value="${this.ingredients}">${this.ingredients}</textarea>
           `
@@ -46,15 +52,6 @@ class Juice{
           formContainer.innerHTML= updateForm
   
           juiceChange.append(formContainer)
-    }
-    updateItemOnDom({name, description, ingredients,category_id}){
-        this.name = name 
-        this.description = description
-        this.ingredients = ingredients
-        this.category_id = category_id
-        this.fullRender()
-        this.addEventListeners()
-        return this.element
     }
 
     addEventListeners(){
