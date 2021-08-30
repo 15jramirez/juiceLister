@@ -3,7 +3,7 @@ class JuiceApi{
          this.baseUrl = `http://localhost:3000/juices`
      }
 
-      fetchImages(){
+      fetchInfo(){
         fetch(this.baseUrl)
         .then(resp => resp.json())
         .then(result =>{

@@ -1,9 +1,11 @@
 console.log('hello form src')
+const categoryApi = new CategoryApi
 const juiceForm = document.getElementById(`juice-form`)
 const newFormButton = document.getElementById('new-form-btn')
 const juiceApi = new JuiceApi
 document.addEventListener(`DOMContentLoaded`, function(){
-    juiceApi.fetchImages()
+    juiceApi.fetchInfo()
+    categoryApi.fetchCategories()
     juiceForm.addEventListener('submit', juiceApi.handleFormSubmit)
     newFormButton.addEventListener('click', hideBtnLoadForm)
 })

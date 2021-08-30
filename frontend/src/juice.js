@@ -6,7 +6,7 @@ class Juice{
         this.ingredients = ingredients  
         this.description = description
         this.id = id 
-        this.category_id = category_id   
+        this.categoryId = category_id   
         this.element = document.createElement(`div`)  
         this.element.id = `juice-${this.id}`
         Juice.all.push(this);
@@ -33,9 +33,10 @@ class Juice{
     }
 
     fullRender(){
-        console.log(this)
+        let categoryName = Category.nameCall(this.categoryId)
+        console.log(categoryName)
         this.element.innerHTML = `<img src = "${this.image_url}" width= "400" height="200"> 
-        <p><span>${this.name}</span>: ${this.category_id}<br>${this.description}<br><span>Ingredients:</span><br>${this.ingredients}</p>
+        <p><span>${this.name}</span>: ${categoryName}<br>${this.description}<br><span>Ingredients:</span><br>${this.ingredients}</p>
         <button class="update" data-id="${this.id}">Update</button>`
         return this.element 
     }
