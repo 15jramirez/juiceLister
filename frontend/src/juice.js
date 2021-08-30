@@ -15,10 +15,6 @@ class Juice{
         return document.getElementById(`container-box`) 
     }
 
-   
-    // static findByID(id){
-    //     return Juice.all.find(juice =>juice.id == id)
-    // }
 
     addInfoToDom(){
         this.imageContainer.append(this.fullRender()) 
@@ -33,7 +29,7 @@ class Juice{
     }
 
     fullRender(){
-        let categoryName = Category.nameCall(this.categoryId)
+        const categoryName = Category.nameCall(this.categoryId)
         console.log(categoryName)
         this.element.innerHTML = `<img src = "${this.image_url}" width= "400" height="200"> 
         <p><span>${this.name}</span>: ${categoryName}<br>${this.description}<br><span>Ingredients:</span><br>${this.ingredients}</p>
