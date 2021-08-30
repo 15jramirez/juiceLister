@@ -43,6 +43,22 @@ class JuiceApi{
         let form = document.getElementById(`update-form-${juiceId}`)
         form.remove()
     }
+
+
+    deleteRequest(juiceId){
+        let configObj ={
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+             }
+        }
+        fetch(this.baseUrl + `/${juiceId}`, configObj)
+        .then(resp => resp.json())
+        .then(result => alert(`${result.data.attributes} was successfully deleted`))
+        let juice = Juice.all.find(j => j.id == juiceId)
+        juice.element.remove()
+    }
     handleFormSubmit = (e) =>{
         e.preventDefault()
         const formData = new FormData(document.getElementById('juice-form'))
@@ -70,3 +86,16 @@ class JuiceApi{
     }
  }
 
+
+
+ // add delete button to each juice that deletes from backend and removes from dom
+
+ // add button for each juice - done
+
+ // add condition to event callback for delete -done 
+
+ // remove from dom - done
+
+ // delete fetch request
+
+ // set up destroy action in juices controller -done

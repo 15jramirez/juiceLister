@@ -30,10 +30,10 @@ class Juice{
 
     fullRender(){
         const categoryName = Category.nameCall(this.categoryId)
-        console.log(categoryName)
         this.element.innerHTML = `<img src = "${this.image_url}" width= "400" height="200"> 
         <p><span>${this.name}</span>: ${categoryName}<br>${this.description}<br><span>Ingredients:</span><br>${this.ingredients}</p>
-        <button class="update" data-id="${this.id}">Update</button>`
+        <button class="update" data-id="${this.id}">Update</button>
+        <button class="delete" data-id="${this.id}">Delete</button>`
         return this.element 
     }
 
@@ -74,6 +74,9 @@ class Juice{
             e.target.className = "save"
             e.target.innerHTML = "save"
             this.addUpdatesFields(juiceId)
+        }
+        else if(e.target.className === "delete"){
+            juiceApi.deleteRequest(juiceId)
         }
         else if (e.target.className ==="save"){
             e.target.className = "update"
